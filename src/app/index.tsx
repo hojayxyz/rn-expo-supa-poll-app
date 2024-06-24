@@ -1,7 +1,11 @@
 import { Stack } from 'expo-router';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { Link } from 'expo-router';
 
-const polls = [1, 2, 3, 4, 5];
+const polls = [{ id: 1 }, { id: 2 }, { id: 3 }];
+
+// http://localhost:8081/polls/details
+// http://localhost:8081/polls/2
 
 export default function HomeScreen() {
   return (
@@ -10,10 +14,12 @@ export default function HomeScreen() {
       <FlatList
         data={polls}
         contentContainerStyle={styles.container}
-        renderItem={() => (
-          <View style={styles.pollContainer}>
-            <Text style={styles.pollTitle}>Example poll question</Text>
-          </View>
+        renderItem={({ item }) => (
+          <Link href={`polls/${item.id}`} style={styles.pollContainer}>
+            <Text style={styles.pollTitle}>
+              {item.id} : Example poll question
+            </Text>
+          </Link>
         )}
       />
     </>
