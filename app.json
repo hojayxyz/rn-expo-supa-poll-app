@@ -2,6 +2,7 @@
   "expo": {
     "name": "rn-expo-supa-poll-app",
     "slug": "rn-expo-supa-poll-app",
+    "scheme": "rn-expo-supa-poll-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,7 +22,9 @@
       }
     },
     "web": {
+      "bundler": "metro",
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": ["expo-router"]
   }
 }
